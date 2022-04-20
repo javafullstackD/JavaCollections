@@ -1,0 +1,120 @@
+public class Triangle {
+    int side1,side2,side3;
+
+    Triangle(){
+        this.side1=5;
+        this.side2=3;
+        this.side3= 4;
+    }
+    public int perimeter(){
+        int perimeter1= this.side1+this.side2+this.side3;
+        return perimeter1;
+    }
+    public double area(){
+        double arr =(this.side2*this.side3)/2;
+
+        return arr;
+    }
+
+    public static void main(String[] args) {
+
+        Triangle obj1 =new Triangle();
+        System.out.println(obj1.perimeter());
+        System.out.println(obj1.area());
+        
+    }
+    
+}
+
+
+public class Pizza {
+
+    private String size_of_the_pizza; 
+    private int number_of_cheese_toppings;
+    private int number_of_pepperoni_toppings;
+    private int number_of_ham_toppings;
+
+    Pizza(String size_of_the_pizza,int number_of_cheese_toppings,int number_of_pepperoni_toppings,int number_of_ham_toppings){
+        this.size_of_the_pizza=size_of_the_pizza;
+        this.number_of_cheese_toppings = number_of_cheese_toppings;
+        this.number_of_pepperoni_toppings = number_of_pepperoni_toppings;
+        this.number_of_ham_toppings=number_of_ham_toppings;
+
+    }
+    public String getSize_of_the_pizza() {
+        return size_of_the_pizza;
+    }
+    public int getNumber_of_cheese_toppings() {
+        return number_of_cheese_toppings;
+    }
+    public int getNumber_of_pepperoni_toppings() {
+        return number_of_pepperoni_toppings;
+    }
+    public int getNumber_of_ham_toppings() {
+        return number_of_ham_toppings;
+    }
+
+    public void setSize_of_the_pizza(String size_of_the_pizza) {
+        this.size_of_the_pizza = size_of_the_pizza;
+    }
+    public void setNumber_of_cheese_toppings(int number_of_cheese_toppings) {
+        this.number_of_cheese_toppings = number_of_cheese_toppings;
+    }
+    public void setNumber_of_pepperoni_toppings(int number_of_pepperoni_toppings) {
+        this.number_of_pepperoni_toppings = number_of_pepperoni_toppings;
+    }
+    public void setNumber_of_ham_toppings(int number_of_ham_toppings) {
+        this.number_of_ham_toppings = number_of_ham_toppings;
+    }
+
+    public double calcCost() {
+        double costV;
+        if (this.size_of_the_pizza == "small") {
+            int toppingTotals = this.number_of_cheese_toppings +this.number_of_pepperoni_toppings+this.number_of_ham_toppings;
+            costV = 1+2*toppingTotals;
+        }
+        else if(this.size_of_the_pizza == "Medium"){
+            int toppingTotals = this.number_of_cheese_toppings +this.number_of_pepperoni_toppings+this.number_of_ham_toppings;
+            costV = 12+2*toppingTotals;
+
+        }
+        else{
+            int toppingTotals = this.number_of_cheese_toppings +this.number_of_pepperoni_toppings+this.number_of_ham_toppings;
+            costV = 14+2*toppingTotals;
+
+        }
+        return costV;
+    }
+
+    public String getDescription(){
+        int totals = this.number_of_cheese_toppings +this.number_of_pepperoni_toppings+this.number_of_ham_toppings;
+        return this.size_of_the_pizza+" "+totals;
+    }
+
+
+    public static void main(String[] args) {
+       
+    }
+}
+
+
+public class PizzaOrder extends Pizza {
+    int noPizzas;
+    double costTotal;
+
+    PizzaOrder(String size_of_the_pizza, int number_of_cheese_toppings, int number_of_pepperoni_toppings,
+            int number_of_ham_toppings,int noPizzas) {
+
+        super(size_of_the_pizza, number_of_cheese_toppings, number_of_pepperoni_toppings, number_of_ham_toppings);
+        //TODO Auto-generated constructor stub
+        this.noPizzas=noPizzas;
+    }
+    public void calcTotal(){
+        
+        if(this.noPizzas<=3){
+            costTotal = super.calcCost() * noPizzas;
+        }
+        System.out.println(costTotal);;
+    }
+
+}
